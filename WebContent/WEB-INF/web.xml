@@ -1,12 +1,123 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/javaee" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" id="WebApp_ID" version="2.5">
-  <display-name>JspProject</display-name>
-  <welcome-file-list>
-    <welcome-file>index.html</welcome-file>
-    <welcome-file>index.htm</welcome-file>
-    <welcome-file>index.jsp</welcome-file>
-    <welcome-file>default.html</welcome-file>
-    <welcome-file>default.htm</welcome-file>
-    <welcome-file>default.jsp</welcome-file>
-  </welcome-file-list>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns="http://java.sun.com/xml/ns/javaee"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd"
+	id="WebApp_ID" version="2.5">
+	<display-name>JspProject</display-name>
+
+
+	<welcome-file-list>
+		<welcome-file>index.jsp</welcome-file>
+	</welcome-file-list>
+
+
+	<!-- 以下為  Listener Servlet 範例 -->
+
+	<listener>
+		<listener-class>
+			web.example.servlet.listener.ServletContextListenerDemo
+		</listener-class>
+	</listener>
+
+	<listener>
+		<listener-class>
+			web.example.servlet.listener.ServletContextAttributeListenerDemo
+		</listener-class>
+	</listener>
+
+	<listener>
+		<listener-class>
+			web.example.servlet.listener.HttpSessionListenerDemo
+		</listener-class>
+	</listener>
+
+
+	<!-- 以下為 簡單 Servlet 範例 -->
+	
+	<!-- 一個 Servlet 程式編譯完之後，因為都是以 *.class 的形式存在，所以必須在 web.xml 中進行 Servlet 程式的  mapping -->
+	<servlet>
+		<servlet-name>HelloServlet</servlet-name>
+		<servlet-class>web.example.servlet.HelloServlet</servlet-class> <!-- 套件.類別 -->
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>HelloServlet</servlet-name>
+		<url-pattern>/HelloServlet</url-pattern>
+	</servlet-mapping>
+
+
+	<servlet>
+		<servlet-name>InputServlet</servlet-name>
+		<servlet-class>web.example.servlet.InputServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>InputServlet</servlet-name>
+		<url-pattern>/servlet/InputServlet</url-pattern>
+	</servlet-mapping>
+
+
+	<servlet>
+		<servlet-name>LifeCycleServlet</servlet-name>
+		<servlet-class>web.example.servlet.LifeCycleServlet</servlet-class>
+		<load-on-startup>1</load-on-startup>	<!-- 容器啟動時就初始化這個 Servlet -->
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>LifeCycleServlet</servlet-name>
+		<url-pattern>/LifeCycleServlet</url-pattern>
+	</servlet-mapping>
+
+
+	<servlet>
+		<servlet-name>InitParamServlet</servlet-name>
+		<servlet-class>web.example.servlet.InitParamServlet</servlet-class>
+		<init-param>
+			<param-name>ref</param-name>
+			<param-value>this is initial paramater</param-value>
+		</init-param>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>InitParamServlet</servlet-name>
+		<url-pattern>/InitParamServlet</url-pattern>
+	</servlet-mapping>
+
+
+	<servlet>
+		<servlet-name>HttpSessionDemoServlet</servlet-name>
+		<servlet-class>web.example.servlet.HttpSessionDemoServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>HttpSessionDemoServlet</servlet-name>
+		<url-pattern>/HttpSessionDemoServlet</url-pattern>
+	</servlet-mapping>
+
+
+	<servlet>
+		<servlet-name>ServletContextDemoServlet</servlet-name>
+		<servlet-class>web.example.servlet.ServletContextDemoServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>ServletContextDemoServlet</servlet-name>
+		<url-pattern>/ServletContextDemoServlet</url-pattern>
+	</servlet-mapping>
+
+
+	<servlet>
+		<servlet-name>ClientRedirectDemo</servlet-name>
+		<servlet-class>web.example.servlet.ClientRedirectDemo</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>ClientRedirectDemo</servlet-name>
+		<url-pattern>/ClientRedirectDemo</url-pattern>
+	</servlet-mapping>
+
+
+	<servlet>
+		<servlet-name>ServerRedirectDemo</servlet-name>
+		<servlet-class>web.example.servlet.ServerRedirectDemo</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>ServerRedirectDemo</servlet-name>
+		<url-pattern>/ServerRedirectDemo</url-pattern>
+	</servlet-mapping>
+
+
 </web-app>
