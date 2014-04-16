@@ -68,4 +68,71 @@
 		</tag>
 		
 		
+		<!-- 使用BodyTagSupport開發反覆運算輸出-->
+		<tag>
+			<name>bodyiterator</name>									
+			<tag-class>web.example.jsp.tag.BodyIteratorTag</tag-class>
+			<tei-class>web.example.jsp.tag.BodyIteratorTagExtraInfo</tei-class>	<!-- 表示將標籤中的 id 屬性定義成一個變數，之後可以直接使用 -->
+			<body-content>JSP</body-content>
+			<attribute>											
+				<name>id</name> 							
+				<required>true</required> 						
+				<rtexprvalue>true</rtexprvalue> 				
+			</attribute>					
+			<attribute>											
+				<name>name</name> 							
+				<required>true</required> 						
+				<rtexprvalue>true</rtexprvalue> 				
+			</attribute>
+			<attribute>											
+				<name>scope</name> 							
+				<required>true</required> 						
+				<rtexprvalue>true</rtexprvalue> 				
+			</attribute>						
+		</tag>
+		
+		
+		<!-- 使用SimpleTagSupport定義日期標籤-->
+		<tag>
+			<name>simpledate</name>									
+			<tag-class>web.example.jsp.tag.SimpleDateTag</tag-class>	
+			<body-content>empty</body-content>	
+			<attribute>											<!-- 關於屬性的定義 -->
+				<name>format</name> 							<!-- format 為屬性名稱，表示 DateTag 類別中有這個成員變數 -->
+				<required>true</required> 						<!-- 表示此屬性值必須設定 -->
+				<rtexprvalue>true</rtexprvalue> 				<!-- 表示是否可以透過運算式輸出結果 EL 或 <%= %> -->
+			</attribute>					
+		</tag>
+		
+		
+		<!-- 使用SimpleTagSupport開發反覆運算輸出-->
+		<tag>
+			<name>simpleiterator</name>									
+			<tag-class>web.example.jsp.tag.SimpleIteratorTag</tag-class>
+			<body-content>scriptless</body-content>
+			<attribute>											
+				<name>id</name> 							
+				<required>true</required> 						
+				<rtexprvalue>true</rtexprvalue> 				
+			</attribute>					
+			<attribute>											
+				<name>name</name> 							
+				<required>true</required> 						
+				<rtexprvalue>true</rtexprvalue> 				
+			</attribute>
+			<attribute>											
+				<name>scope</name> 							
+				<required>true</required> 						
+				<rtexprvalue>true</rtexprvalue> 				
+			</attribute>						
+		</tag>
+		
+		<!-- 動態不定參數加法標籤-->
+		<tag>
+			<name>dynamicadd</name>									
+			<tag-class>web.example.jsp.tag.DynamicAddTag</tag-class>	
+			<body-content>empty</body-content>
+			<dynamic-attributes>true</dynamic-attributes>					
+		</tag>
+		
 </taglib>
